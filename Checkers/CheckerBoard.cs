@@ -806,7 +806,7 @@ namespace Checkers {
 
                 var aPiece = GetPiece(a);
                 var bPiece = GetPiece(b);
-
+                var cPiece = GetPiece(c);
                 List<int?> aList = new List<int?>();
                 List<int?> bList = new List<int?>();
                 List<int?> cList = new List<int?>();
@@ -833,8 +833,8 @@ namespace Checkers {
                                     //A and B are a jump, now check B and C.
                                     cList =getNeighbors(c);
                                     //Find a common neighbor
-                                    foreach(int? k in aList) {
-                                        foreach(int? l in bList) {
+                                    foreach(int? k in bList) {
+                                        foreach(int? l in cList) {
                                             if(k == l){
                                                 //neighbor found, store it as a piece.
                                                 var lPiece = GetPiece(l);
