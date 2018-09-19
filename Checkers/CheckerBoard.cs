@@ -813,7 +813,7 @@ namespace Checkers {
                 if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add top neighbors
                     aList.Add(aPiece.topleftNode);
-                    aList.Add(aPiece.toprightNode);                    // TODO: IF NULL DO SOMETHING HERE
+                    aList.Add(aPiece.toprightNode);                   
                 }
                 if((aPiece.face == '+')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add bottom neighbors
@@ -832,6 +832,18 @@ namespace Checkers {
                                 if(bPiece == null) {
                                     //A and B are a jump, now check B and C.
                                     cList =getNeighbors(c);
+                                    bList.Clear();
+                                    //Clear and readd neighbors to B based on the face value of A
+                                    if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
+                                         //Add top neighbors
+                                           bList.Add(bPiece.topleftNode);
+                                           bList.Add(bPiece.toprightNode);                   
+                                      }
+                                    if((aPiece.face == '+')||(aPiece.face == '@')||(aPiece.face == '#')) {
+                                           //Add bottom neighbors
+                                          bList.Add(aPiece.bottomleftNode);
+                                          bList.Add(aPiece.bottomrightNode);
+                                     }
                                     //Find a common neighbor
                                     foreach(int? k in bList) {
                                         foreach(int? l in cList) {

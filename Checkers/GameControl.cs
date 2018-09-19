@@ -78,7 +78,7 @@ namespace Checkers {
 
                 //See if a and b can jump
 
-                if(TheCheckerBoard.isItAJump(a,b)&&TheCheckerBoard.isItAJump(b,c)) {
+                if(TheCheckerBoard.isItAJump(a,b,c)) {
                     var x = moves[0];
                     moves.Remove(b);
                     moves.Remove(c);
