@@ -19,6 +19,7 @@ namespace Checkers{
 
 
             GameControl.GetInstance().RUN();
+            Console.ReadLine();
             //MoveControler.ProcessMove();
             
 

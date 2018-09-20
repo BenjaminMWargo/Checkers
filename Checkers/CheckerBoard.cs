@@ -814,13 +814,21 @@ namespace Checkers {
                 List<int?> cList = new List<int?>();
                 if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add top neighbors
+                    try{
                     aList.Add(aPiece.topleftNode);
-                    aList.Add(aPiece.toprightNode);                   
+                     } catch (NullReferenceException e){}
+                    try{
+                    aList.Add(aPiece.toprightNode);
+                     } catch (NullReferenceException e){}   
                 }
                 if((aPiece.face == '+')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add bottom neighbors
+                    try{
                     aList.Add(aPiece.bottomleftNode);
+                    } catch (NullReferenceException e){}
+                    try{
                     aList.Add(aPiece.bottomrightNode);
+                    } catch (NullReferenceException e){}
                 }
                 bList = getNeighbors(b);
                 List<int?> dList = new List<int?>();
@@ -894,15 +902,23 @@ namespace Checkers {
 
                 List<int?> aList = new List<int?>();
                 List<int?> bList = new List<int?>();
-                if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
+               if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add top neighbors
+                    try{
                     aList.Add(aPiece.topleftNode);
-                    aList.Add(aPiece.toprightNode);                    // TODO: IF NULL DO SOMETHING HERE
+                     } catch (NullReferenceException e){}
+                    try{
+                    aList.Add(aPiece.toprightNode);
+                     } catch (NullReferenceException e){}   
                 }
                 if((aPiece.face == '+')||(aPiece.face == '@')||(aPiece.face == '#')) {
                     //Add bottom neighbors
+                    try{
                     aList.Add(aPiece.bottomleftNode);
+                    } catch (NullReferenceException e){}
+                    try{
                     aList.Add(aPiece.bottomrightNode);
+                    } catch (NullReferenceException e){}
                 }
                 bList = getNeighbors(b);
                 //Compare the lists to find if there is a common neighbor

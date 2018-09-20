@@ -29,7 +29,7 @@ namespace Checkers {
                 MakeMove(MoveRequest);
                
                 // If no moves or no jumps, game is over for current player
-                if((!TheCheckerBoard.anyJumps()) & !(TheCheckerBoard.areThereMoves())){
+                /*if((!TheCheckerBoard.anyJumps()) & !(TheCheckerBoard.areThereMoves())){
                     bool turn = TheCheckerBoard.whosTurn();
                     //false = blacks turn
                     if (turn){
@@ -38,8 +38,9 @@ namespace Checkers {
                     else{
                         Console.WriteLine("White wins!");
                     }
+                    Console.ReadLine();
                     return;
-                }
+                }*/
             }
         }
         private void MakeMove(MoveRequest request) {
