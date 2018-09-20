@@ -592,6 +592,8 @@ namespace Checkers {
                                 if(Nodes[4].getCheckerType() == !Nodes[0].getCheckerType()) {
                                     try {
                                         var TempPiece = GetPiece((int)Nodes[4].bottomrightNode);
+                                        if (TempPiece ==null)
+                                            return true;
                                     } catch(NullReferenceException e) { return true; }
                                 }
                             }
