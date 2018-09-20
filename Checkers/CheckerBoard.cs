@@ -262,7 +262,7 @@ namespace Checkers {
             return output;
         }
 
-        public void MovePiece(char player,int currentSpace,int newSpace) {
+        public void MovePiece(char player,int currentSpace,int newSpace,bool multiJump = false) {
 
 
             player = player.ToLower(); // ensures the players can type in uppercase and/or lowercase 
@@ -823,6 +823,8 @@ namespace Checkers {
                     aList.Add(aPiece.bottomrightNode);
                 }
                 bList = getNeighbors(b);
+                List<int?> dList = new List<int?>();
+                dList = getNeighbors(b);
                 //Compare the lists to find if there is a common neighbor
                 foreach(int? i in aList) {
                     foreach(int? j in bList) {
@@ -834,9 +836,9 @@ namespace Checkers {
                                 if(bPiece == null) {
                                     //A and B are a jump, now check B and C.
                                     cList =getNeighbors(c);
-                                    List<int?> dList = new List<int?>();
+                                   
                                     //Clear and readd neighbors to B based on the face value of A
-                                    if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
+                                    /*if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
                                          //Add top neighbors
                                          try{
                                            dList.Add(bPiece.topleftNode);
@@ -854,7 +856,7 @@ namespace Checkers {
                                         try{
                                           dList.Add(aPiece.bottomrightNode);
                                              } catch (NullReferenceException e){}
-                                     }
+                                     }*/
                                     //Find a common neighbor
                                     foreach(int? k in dList) {
                                         foreach(int? l in cList) {

@@ -27,7 +27,7 @@ namespace Checkers {
                     return;
                 }
                 MakeMove(MoveRequest);
-                TheCheckerBoard.player1 = !TheCheckerBoard.player1;
+               
                 // If no moves or no jumps, game is over for current player
                 if((!TheCheckerBoard.anyJumps()) & !(TheCheckerBoard.areThereMoves())){
                     bool turn = TheCheckerBoard.whosTurn();
@@ -137,6 +137,7 @@ namespace Checkers {
             moves = null;
             savedMoves = null;
             request = null;
+            TheCheckerBoard.player1 = !TheCheckerBoard.player1;
         }
     }
 }
