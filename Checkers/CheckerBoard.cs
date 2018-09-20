@@ -834,20 +834,29 @@ namespace Checkers {
                                 if(bPiece == null) {
                                     //A and B are a jump, now check B and C.
                                     cList =getNeighbors(c);
-                                    bList.Clear();
+                                    List<int?> dList = new List<int?>();
                                     //Clear and readd neighbors to B based on the face value of A
                                     if((aPiece.face == 'O')||(aPiece.face == '@')||(aPiece.face == '#')) {
                                          //Add top neighbors
-                                           bList.Add(bPiece.topleftNode);
-                                           bList.Add(bPiece.toprightNode);                   
+                                         try{
+                                           dList.Add(bPiece.topleftNode);
+                                         } catch (NullReferenceException e){}
+                                          try{
+                                           dList.Add(bPiece.toprightNode);                   
+                                         } catch (NullReferenceException e){}
                                       }
+
                                     if((aPiece.face == '+')||(aPiece.face == '@')||(aPiece.face == '#')) {
                                            //Add bottom neighbors
-                                          bList.Add(aPiece.bottomleftNode);
-                                          bList.Add(aPiece.bottomrightNode);
+                                           try{
+                                          dList.Add(aPiece.bottomleftNode);
+                                             } catch (NullReferenceException e){}
+                                        try{
+                                          dList.Add(aPiece.bottomrightNode);
+                                             } catch (NullReferenceException e){}
                                      }
                                     //Find a common neighbor
-                                    foreach(int? k in bList) {
+                                    foreach(int? k in dList) {
                                         foreach(int? l in cList) {
                                             if(k == l){
                                                 //neighbor found, store it as a piece.
